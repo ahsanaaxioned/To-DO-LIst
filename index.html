@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- If multi-language site, reconsider usage of html lang declaration here. -->
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -13,10 +13,10 @@
   <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
   <link rel="shortcut icon" href="favicon.ico" />
   <!--font-awesome link for icons-->
-  <link rel="stylesheet" media="screen" href="assets/vendor/font-awesome/css/all.min.css" >
+  <link rel="stylesheet" media="screen" href="assets/vendor/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
-  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+  <link rel="stylesheet" media="screen" href="assets/css/style.css">
 </head>
 
 <body>
@@ -24,11 +24,32 @@
   <div class="container">
     <!--main section start-->
     <main>
-
+      <section class="to-do">
+        <div class="wrapper">
+          <div class="form-container">
+            <h1 class="heading">To Do</h1>
+            <form action="#FIXEDME" class="form" method="post" name="form">
+              <div class="input-group">
+                <input type="text" name="to-do-input" id="input-to-do" class="input-to-do">
+              </div>
+              <button class="to-do-btn">ADD</button>
+            </form>
+          </div>
+          <div class="to-do-content">
+            <h2 class="sub-heading">Your To Do's</h2>
+            <ul class="to-do-list">
+              <li class="to-do-item">Sr.NO</li>
+              <li class="to-do-item">To Do Name</li>
+              <li class="to-do-item">Actions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
     <!--main section end-->
   </div>
   <!--container end-->
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>
