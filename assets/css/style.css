@@ -132,7 +132,7 @@ li {
   align-items: flex-end;
 }
 
-.to-do-list {
+.to-do-list ,.data-item-title{
   display: flex;
   justify-content: space-between;
 }
@@ -162,6 +162,11 @@ label {
   flex-basis: 31%;
 }
 
+.form.active .add-btn { display: none; }
+.form.active .update-btn { display: block; }
+
+.update-btn { display: none; }
+
 .sub-heading {
   padding: 16px 0;
   color: #636159;
@@ -170,9 +175,10 @@ label {
   text-align: center;
 }
 
-.to-do-item {
+.to-do-item ,.title-list{
   padding: 7px 0;
   border: 1px solid #CDCDCD;
+  display: flex;
   color: #161616;
   flex-basis: 20%;
   font-weight: 600;
@@ -182,31 +188,56 @@ label {
 
 .to-do-item:nth-child(1) { border-left: none; }
 .to-do-item:nth-child(3) { border-right: none; }
-.to-do-item:nth-child(2) { flex-basis: 60%; }
-.icon{ text-indent: -9999px; }
+.to-do-item:nth-child(2),.title-list:nth-child(2) { flex-basis: 60%; }
+.icon{
+  display: block; 
+  text-indent: -9999px;
+ }
 
-.icon::before,.icon::after {
-  content: "\f040";
+.icon::before{
   width: 15px;
   height: 15px;
   padding: 7px;
-  border: 1px solid #62AF9D;
   border-radius: 50%;
   display: flex;
   float: left;
   align-items: center;
-  color: #62AF9D;
   font-family: "FontAwesome";
   justify-content: center;
   text-indent: 0;
 }
 
-.icon::after {
+.edit::before {
+  content: "\f040";
+  border: 1px solid #62AF9D;
+  margin-left: 10px;
+  color: #62AF9D;
+}
+
+.delete::before {
   content: "\f55a";
   border: 1px solid #F76165;
   margin-left: 10px;
   color: #F76165;
 }
+
+.input-group { position: relative; }
+
+.error {
+  position: absolute;
+  bottom: -21px;
+  visibility: hidden;
+}
+
+.error.fail {
+   visibility: visible;
+   color: #e71414;
+  }
+
+  .data-item,
+  .data-item li ,.data-item-title{ 
+    width: 100%;
+  }
 /*=================================
   main styling ends here
 =================================*/
@@ -224,6 +255,5 @@ label {
 /*media query for 480px starts here*/
 @media only screen and (max-width: 480px) {
   .wrapper { width: 95%; }
-  .icon::before, .icon::after { padding: 4px; }
 }
 /*media query for 480px end here*/
