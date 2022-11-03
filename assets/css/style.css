@@ -186,8 +186,6 @@ label {
   justify-content: center;
 }
 
-.to-do-item:nth-child(1) { border-left: none; }
-.to-do-item:nth-child(3) { border-right: none; }
 .to-do-item:nth-child(2),.title-list:nth-child(2) { flex-basis: 60%; }
 
 .icon {
