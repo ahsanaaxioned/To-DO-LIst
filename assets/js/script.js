@@ -13,29 +13,25 @@ window.onload = dataShow();
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const fail = document.querySelector(".fail"),
-  inputVal= input.value;
+    inputVal = input.value;
   if (inputVal == "") {
     if (fail) {
       inputGroup.removeChild(fail);
-      // error.classList.remove("fail");
     }
-      const error = document.createElement("span");
-      error.className = "error";
-      error.innerText = "*field is required";
-      inputGroup.appendChild(error);
-      error.classList.add("fail");
-    
+    const error = document.createElement("span");
+    error.className = "error";
+    error.innerText = "*field is required";
+    inputGroup.appendChild(error);
+    error.classList.add("fail");
+
   } else {
-      if (fail) {
-        inputGroup.removeChild(fail);
-        // fail.classList.remove("fail");
-      }
-      arry.push(inputVal);
-      localStorage.setItem("inputVal",JSON.stringify(arry));
-      input.value = "";
-      dataShow();
-
-
+    if (fail) {
+      inputGroup.removeChild(fail);
+    }
+    arry.push(inputVal);
+    localStorage.setItem("inputVal", JSON.stringify(arry));
+    input.value = "";
+    dataShow();
   }
 });
 // form event end here
@@ -59,62 +55,47 @@ function dataShow() {
 
   dataItem.innerHTML = item;
   // delete event start here
-  if(dataItem.children.length != 0) {
+  if (dataItem.children.length != 0) {
     const deletebtn = document.querySelectorAll(".delete");
-    deletebtn.forEach(function(deleteEle,i){
-      deleteEle.addEventListener("click",function(){
+    deletebtn.forEach(function (deleteEle, i) {
+      deleteEle.addEventListener("click", function () {
         deleteItem(i);
       })
-    })
+    });
+  // edit event start here
     const editBtn = document.querySelectorAll(".edit");
-    editBtn.forEach(function(editEle,idx){
-      editEle.addEventListener("click" ,function(){
+    editBtn.forEach(function (editEle, idx) {
+      editEle.addEventListener("click", function () {
         form.classList.add("active");
         input.value = data[idx];
         updatedBtn.setAttribute("data-index-num", idx);
-      })
+      });
 
-    })
-  }
-} 
+    });
+  };
+};
 
-updatedBtn.addEventListener("click", function(){
-  const dataValue = updatedBtn.getAttribute("data-index-num");
-  const inputValue = input.value;
+// upadte and edit event start here
+updatedBtn.addEventListener("click", function () {
+  const dataValue = updatedBtn.getAttribute("data-index-num"),
+    inputValue = input.value;
   arry.splice(dataValue, 1, inputValue);
-  localStorage.setItem("inputVal",JSON.stringify(arry));
+  localStorage.setItem("inputVal", JSON.stringify(arry));
   dataShow();
   input.value = "";
-  
+
   form.classList.remove("active");
+  const fail = document.querySelector(".fail");
+  if (fail) {
+    inputGroup.removeChild(fail);
+  }
 });
 
 // delete function start here
-function deleteItem(index){
-  arry.splice(index,1);
-  localStorage.setItem("inputVal",JSON.stringify(arry));
+function deleteItem(index) {
+  arry.splice(index, 1);
+  localStorage.setItem("inputVal", JSON.stringify(arry));
   dataShow();
   input.value = "";
 };
-// delete function start here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// delete function end here
