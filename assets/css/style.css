@@ -132,7 +132,7 @@ li {
   align-items: flex-end;
 }
 
-.to-do-list ,.data-item-title{
+.to-do-list ,.data-item-title {
   display: flex;
   justify-content: space-between;
 }
@@ -175,7 +175,7 @@ label {
   text-align: center;
 }
 
-.to-do-item ,.title-list{
+.to-do-item ,.title-list {
   padding: 7px 0;
   border: 1px solid #CDCDCD;
   display: flex;
@@ -183,18 +183,19 @@ label {
   flex-basis: 20%;
   font-weight: 600;
   font-size: 18px;
-  text-align: center;
+  justify-content: center;
 }
 
 .to-do-item:nth-child(1) { border-left: none; }
 .to-do-item:nth-child(3) { border-right: none; }
 .to-do-item:nth-child(2),.title-list:nth-child(2) { flex-basis: 60%; }
-.icon{
+
+.icon {
   display: block; 
   text-indent: -9999px;
  }
 
-.icon::before{
+.icon::before {
   width: 15px;
   height: 15px;
   padding: 7px;
@@ -230,14 +231,12 @@ label {
 }
 
 .error.fail {
-   visibility: visible;
-   color: #e71414;
-  }
+  color: #e71414;
+  visibility: visible;
+}
 
-  .data-item,
-  .data-item li ,.data-item-title{ 
-    width: 100%;
-  }
+.data-item,
+.data-item li ,.data-item-title{  width: 100%; }
 /*=================================
   main styling ends here
 =================================*/
@@ -249,11 +248,9 @@ label {
 /*media query for 1024px end here*/
 /*media query for 768px starts here*/
 @media only screen and (max-width: 768px) {
-  .wrapper { width: 85%; }
+  .wrapper { width: 95%; }
+  .to-do-item, .title-list { font-size: 16px; }
+  .to-do-item:nth-child(2), .title-list:nth-child(2) { flex-basis: 58%; }
+  .to-do-item, .title-list { flex-basis: 25%; }
 }
 /*media query for 768px end here*/
-/*media query for 480px starts here*/
-@media only screen and (max-width: 480px) {
-  .wrapper { width: 95%; }
-}
-/*media query for 480px end here*/
